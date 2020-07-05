@@ -2,17 +2,26 @@
   text-align: center;
 }
 
-.btn {
-  background-color: "green";
+.App button {
+  background-color: green;
   color: white;
   font: inherit;
   border: 1px solid blue;
   padding: 8px;
   cursor: pointer;
 }
+.App button:hover {
+  background-color: lightgreen;
+  color: black;
+}
 
-.red {
-  color: red;
+.Red {
+  background-color: red;
+}
+
+.Red:hover {
+  background-color: salmon;
+  color: black;
 }
 
 .bold {
