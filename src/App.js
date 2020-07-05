@@ -1,5 +1,5 @@
 import React, { Component /*createElement*/ } from "react";
-import "./App.css";
+import classes from "./App.css";
 // import Radium, { StyleRoot } from "radium";
 import Person from "./Person/Person";
 
@@ -74,23 +74,23 @@ class App extends Component {
           })}
         </div>
       );
-      btnClass = className.Red;
+      btnClass = classes.Red;
     }
 
     // let classes = ["red", "bold"].join(" ");
-    const classes = [];
+    const assignedClasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push("Red"); //classes = ['red']
+      assignedClasses.push(classes.red); //classes = ['red']
     }
     if (this.state.persons.length <= 1) {
-      classes.push("bold"); //classes = ['red','bold']
+      assignedClasses.push(classes.bold); //classes = ['red','bold']
     }
 
     return (
       // <StyleRoot>
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi, I am a react App</h1>
-        <p className={classes.join(" ")}>This is working</p>
+        <p className={assignedClasses.join(" ")}>This is working</p>
         <button
           className={btnClass}
           // onClick={() => this.switchNameHandler("Maximillian")}

@@ -1,13 +1,20 @@
 .App {
   text-align: center;
 }
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
 
 .App button {
-  background-color: green;
-  color: white;
-  font: inherit;
   border: 1px solid blue;
   padding: 8px;
+  background-color: green;
+  font: inherit;
+  color: white;
   cursor: pointer;
 }
 .App button:hover {
@@ -15,15 +22,11 @@
   color: black;
 }
 
-.Red {
+.App button.Red {
   background-color: red;
 }
 
-.Red:hover {
+.App button.Red:hover {
   background-color: salmon;
   color: black;
-}
-
-.bold {
-  font-weight: bold;
 }
