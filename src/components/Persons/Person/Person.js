@@ -8,7 +8,7 @@ const person = (props) => {
   //     width: "450px",
   //   },
   // };
-
+  console.log("[Person.js] rendering...");
   return (
     <div className={classes.Person}>
       <p onClick={props.click}>
