@@ -4,8 +4,23 @@ import classes from "./Person.css";
 // import Radium from "radium";
 import Aux from "../../../hoc/Auxiliary";
 import withClass from "../../../hoc/withClass";
+import AuthContext from "../../../context/auth-context";
 
 class Person extends Component {
+  constructor(props) {
+    super(props);
+    this.inputElementRef = React.createRef;
+  }
+
+  static contextType = AuthContext;
+
+  componentDidMount() {
+    // document.querySelector("input").focus();
+    // this.inputElement.focus();
+    // this.inputElementRef.current.focus();
+    console.log(this.context.authenticated);
+  }
+
   render() {
     // const person = (props) => {
     // const style = {
@@ -16,6 +31,11 @@ class Person extends Component {
     console.log("[Person.js] rendering...");
     return (
       <Aux>
+        {this.context.authenticated ? (
+          <p>Authenticated</p>
+        ) : (
+          <p>Please login again</p>
+        )}
         {/* <div className={classes.Person}> */}
         <p key="i1" onClick={this.props.click}>
           I'm {this.props.name} and i'm {this.props.age}
@@ -23,6 +43,8 @@ class Person extends Component {
         <p key="i2">{this.props.children}</p>
         <input
           key="i3"
+          // ref={(inputEl) => {this.inputElement = inputEl;}}
+          ref={this.inputElementRef}
           type="text"
           onChange={this.props.changed}
           value={this.props.name}

@@ -1,15 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import classes from "./Cockpit.css";
+import AuthContext from "../../context/auth-context";
 
 const cockpit = (props) => {
+  const toggleBtnRef = useRef(null);
+  const authContext = useContext(AuthContext);
+
+  console.log(authContext.authenticated);
+
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
     // Http request
-    const timer = setTimeout(() => {
-      alert("Saved data to cloud");
-    }, 1000);
+    // const timer = setTimeout(() => {
+    //   alert("Saved data to cloud");
+    // }, 1000);
+    toggleBtnRef.current.click();
     return () => {
-      clearTimeout(timer);
+      // clearTimeout(timer);
       console.log("[Cockpit.js] cleaning work in useEffect");
     };
   }, []);
@@ -42,11 +49,15 @@ const cockpit = (props) => {
       <p className={assignedClasses.join(" ")}>This is working</p>
       <button
         className={btnClass}
+        ref={toggleBtnRef}
         // onClick={() => this.switchNameHandler("Maximillian")}
         onClick={props.clicked}
       >
         Toggle Persons
       </button>
+      {/* <AuthContext.Consumer> */}
+      <button onClick={authContext.login}>Log in</button>
+      {/* </AuthContext.Consumer> */}
     </div>
   );
 };
